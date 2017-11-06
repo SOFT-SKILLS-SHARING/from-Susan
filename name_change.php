@@ -1,5 +1,5 @@
 <?php
-include("connect_User.php");
+include("db.php");
 $user_ID="1";
 
 //设定查询语句，用于显示用户昵称
@@ -70,25 +70,25 @@ $row=$result->fetch_array();
     <div data-am-widget="navbar" class="am-navbar am-cf my-nav-footer " id="">
         <ul class="am-navbar-nav am-cf am-avg-sm-4 my-footer-ul">
             <li>
-                <a href="index.html" class="">
+                <a href="index.php" class="">
                     <span class="am-icon-home"></span>
                     <span class="am-navbar-label">首页</span>
                 </a>
             </li>
             <li>
-                <a href="publish.html" class="">
+                <a href="publish.php" class="">
                     <span class=" am-icon-comments"></span>
                     <span class="am-navbar-label">信息发布</span>
                 </a>
             </li>
             <li>
-                <a href="favorite.html" class="">
+                <a href="shoucang.php" class="">
                     <span class="am-icon-user"></span>
                     <span class="am-navbar-label">收藏夹</span>
                 </a>
             </li>
             <li>
-                <a href="resume.html" class="">
+                <a href="user.php" class="">
                     <span class="am-icon-user"></span>
                     <span class="am-navbar-label">我的</span>
                 </a>
@@ -130,7 +130,7 @@ $act = $input->get("act");
 if($act!==FALSE){
     $user_name = $input->post("user_name");
 
- /*   $sql="SELECT * FROM `login` WHERE `user_ID` = $user_ID"; */
+ //   $sql="SELECT * FROM `login` WHERE `user_ID` = $user_ID";
 
     $sql="update `login` set user_name='{$user_name}' where user_ID='{$user_ID}'";
     $result=$link->query($sql);

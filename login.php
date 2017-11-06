@@ -61,65 +61,32 @@
             </a>
         </div>
     </footer>
-    <!--底部-->
-    <!--<div data-am-widget="navbar" class="am-navbar am-cf my-nav-footer " id="">
-        <ul class="am-navbar-nav am-cf am-avg-sm-4 my-footer-ul">
-            <li>
-                <a href="index.html" class="">
-                    <span class="am-icon-home"></span>
-                    <span class="am-navbar-label">首页</span>
-                </a>
-            </li>
-            <li>
-                <a href="publish.html" class="">
-                    <span class=" am-icon-comments"></span>
-                    <span class="am-navbar-label">信息发布</span>
-                </a>
-            </li>
-            <li>
-                <a href="favorite.html" class="">
-                    <span class="am-icon-user"></span>
-                    <span class="am-navbar-label">收藏夹</span>
-                </a>
-            </li>
-            <li>
-                <a href="resume.html" class="">
-                    <span class="am-icon-user"></span>
-                    <span class="am-navbar-label">我的</span>
-                </a>
-            </li>
-        </ul>
-        <script>
-            function showFooterNav(){
-                $("#footNav").toggle();
-            }
-        </script>
-    </div>-->
 </div>
 </body>
 </html>
 
 
 <?php
-    include("connect_User.php");
-    class input{
-        function post($key){
-            if(isset($_POST[$key]) === FALSE){
-                return FALSE;
-            }
-            $val = $_POST[ $key ];
-            return $val;
+error_reporting(E_ALL || ~E_NOTICE);//显示除去 E_NOTICE 之外的所有错误信息
+    include("db.php");
+class input{
+    function post($key){
+        if(isset($_POST[$key]) === FALSE){
+            return FALSE;
         }
-        function get($key){
-            if(isset($_GET[$key]) === FALSE){
-                return FALSE;
-            }
-            $val = $_GET[$key];
-            return $val;
-        }
+        $val = $_POST[ $key ];
+        return $val;
     }
+    function get($key){
+        if(isset($_GET[$key]) === FALSE){
+            return FALSE;
+        }
+        $val = $_GET[$key];
+        return $val;
+    }
+}
 
-    $input = new input();
+$input = new input();
     $act = $input->get("act");
 
     if($act!==FALSE){

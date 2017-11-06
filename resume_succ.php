@@ -54,10 +54,10 @@
 error_reporting(E_ALL || ~E_NOTICE); //显示除去 E_NOTICE 之外的所有错误信息
 
 //点击进入个人信息
-if($_GET["action"]=="login"){
+/*if($_GET["action"]=="login"){
     echo "<script language=\"javascript\">";
     echo "document.location=\"index.html\"";
     echo "</script>";
-}
+}*/
 
 ?>

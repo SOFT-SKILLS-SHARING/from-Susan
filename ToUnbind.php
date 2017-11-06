@@ -15,13 +15,13 @@
     <body>
     <div class="container">
         <header data-am-widget="header" class="am-header am-header-default my-header">
-            <!--<div class="am-header-left am-header-nav">
-                <a href="resume.html" class="">
+            <div class="am-header-left am-header-nav">
+                <a href="user.php" class="">
                     <i class="am-header-icon am-icon-chevron-left"></i>
                 </a>
-            </div>-->
+            </div>
             <h1 class="am-header-title">
-                <a href="" class="">注册成功</a>
+                <a href="" class="">账号信息</a>
             </h1>
             <!--      <div class="am-header-right am-header-nav">
                     <a href="#right-link" class="">
@@ -35,22 +35,9 @@
             <p align="center">温馨提示：绑定学号才能使用完整功能噢！
             <p align="center">点击下方【绑定学号】进入绑定↓↓↓
 
-            <!--<div>
-                <ul class="am-avg-sm-2 am-text-center">
-                    <li class="am-text-center am-padding-sm"><button type="button" onclick="window.location.href('binding.php')"
-                                                                     class="am-btn am-btn-danger am-btn-block am-radius am-btn-sm">确定</button></li>
-                    <li class="am-text-center am-padding-sm"><button type="button" onclick="window.location.href('http://localhost/test/login.php')"
-                                                                     class="am-btn am-btn-success am-btn-block am-radius am-btn-sm">离开</button></li>
-                    <li class="am-text-center am-padding-sm"><button type="button" class="am-btn am-btn-danger am-btn-block am-radius am-btn-sm">确定</button></li>
-                    <li class="am-text-center am-padding-sm"><button type="button" class="am-btn am-btn-success am-btn-block am-radius am-btn-sm">离开</button></li>
-                    <input type=button onclick="window.location.href('连接')">
-                    <button onclick="window.open('http://hao.360.cn/')">按钮链接</button>
-                </ul>
-            </div>-->
-
             <div class="cart-panel">
-                <p class="am-text-center"><a href="binding.php" class="am-btn am-btn-danger am-radius am-btn-block">绑定学号</a></p>
-                <p class="am-text-center"><a href="login.php" class="am-btn am-btn-danger am-radius am-btn-block">立即登录</a></p>
+                <p class="am-text-center"><a href="unbind.php" class="am-btn am-btn-danger am-radius am-btn-block">解除绑定</a></p>
+                <p class="am-text-center"><a href="#" class="am-btn am-btn-danger am-radius am-btn-block">退出登录</a></p>
             </div>
 
         <footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">

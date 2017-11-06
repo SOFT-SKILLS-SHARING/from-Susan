@@ -1,59 +1,3 @@
-<?php
-include("connect_User.php");
-$user_ID=9;
-class input{
-    function post($key){
-       if(isset($_POST[$key]) === FALSE){
-           return FALSE;
-       }
-       $val = $_POST[ $key ];
-    return $val; 
-    } 
-     function get($key){
-       if(isset($_GET[$key]) === FALSE){
-           return FALSE;
-       }
-       $val = $_GET[$key];
-    return $val; 
-    } 
-}
-
-$input = new input();
-$act = $input->get("act");
-
-if($act!==FALSE) {
-    $Number = $input->post("Number");
-    $num_key = $input->post("num_key");
-
-    $sql_read = "SELECT * from Number WHERE Number ={$Number} and num_key={$num_key}";
-    $link_result = $link->query($sql_read);
-
-    if (empty($Number) || empty($num_key)) {
-        echo "学号、密码均不能为空";
-    } else {
-        if ($link_result->fetch_array()) {
-            $sql_write = "INSERT INTO `binding`(`user_ID`, `user_Number`) VALUES ($user_ID,$Number)";
-            $is = $link->query($sql_write);
-            if ($is) {
-                //跳转至注册成功提示绑定的页面：binding_succ.php
-                echo "<script language=\"javascript\">";
-                echo "document.location=\"binding_succ.php\"";
-                echo "</script>";
-            }
-            else {
-                echo "绑定失败";
-            }
-
-        }
-        else {
-            echo "学号或密码错误";
-        }
-
-    }
-}
-
-?>
-
 
 <!doctype html>
 <html>
@@ -75,12 +19,12 @@ if($act!==FALSE) {
 <div class="container">
     <header data-am-widget="header" class="am-header am-header-default my-header">
         <div class="am-header-left am-header-nav">
-            <a href="resume.html" class="">
+            <a href="user.php" class="">
                 <i class="am-header-icon am-icon-chevron-left"></i>
             </a>
         </div>
         <h1 class="am-header-title">
-            <a href="binding.html" class="">绑定学号</a>
+            <a href="binding.php" class="">绑定学号</a>
         </h1>
         <!--      <div class="am-header-right am-header-nav">
                 <a href="#right-link" class="">
@@ -97,7 +41,7 @@ if($act!==FALSE) {
             </div>
             <div class="am-form-group am-form-icon">
                 <i class="am-icon-lock" style="color:#329cd9"></i>
-                <input name="num_key" type="password" class="am-form-field  my-radius" placeholder="请输入您的密码">
+                <input name="num_key" type="password" class="am-form-field  my-radius" placeholder="请输入您的密码（教务系统登录密码）">
             </div>
             <div class="am-checkbox">
                 <label>
@@ -114,41 +58,62 @@ if($act!==FALSE) {
             <p>&nbsp;</p>
         </div>
     </footer>
-    <!--底部-->
-    <!--<div data-am-widget="navbar" class="am-navbar am-cf my-nav-footer " id="">
-        <ul class="am-navbar-nav am-cf am-avg-sm-4 my-footer-ul">
-            <li>
-                <a href="index.html" class="">
-                    <span class="am-icon-home"></span>
-                    <span class="am-navbar-label">首页</span>
-                </a>
-            </li>
-            <li>
-                <a href="publish.html" class="">
-                    <span class=" am-icon-comments"></span>
-                    <span class="am-navbar-label">信息发布</span>
-                </a>
-            </li>
-            <li>
-                <a href="favorite.html" class="">
-                    <span class="am-icon-user"></span>
-                    <span class="am-navbar-label">收藏夹</span>
-                </a>
-            </li>
-            <li>
-                <a href="resume.html" class="">
-                    <span class="am-icon-user"></span>
-                    <span class="am-navbar-label">我的</span>
-                </a>
-            </li>
-        </ul>
-        <script>
-            function showFooterNav(){
-                $("#footNav").toggle();
-            }
-        </script>
-    </div>-->
 </div>
 </body>
 </html>
 
+
+<?php
+error_reporting(E_ALL || ~E_NOTICE);//显示除去 E_NOTICE 之外的所有错误信息
+include("db.php");
+$user_ID=45;
+
+class input{
+    function post($key){
+        if(isset($_POST[$key]) === FALSE){
+            return FALSE;
+        }
+        $val = $_POST[ $key ];
+        return $val;
+    }
+    function get($key){
+        if(isset($_GET[$key]) === FALSE){
+            return FALSE;
+        }
+        $val = $_GET[$key];
+        return $val;
+    }
+}
+
+$input = new input();
+$act = $input->get("act");
+if($act!==FALSE) {
+    $Number = $input->post("Number");
+    $num_key = $input->post("num_key");
+
+    $sql_read = "SELECT * from studentnumber WHERE Number ={$Number} and num_key={$num_key}";
+    $read_result = $link->query($sql_read);
+
+    if (empty($Number) || empty($num_key)) {
+        echo "学号、密码均不能为空";
+    } else {
+        if ($read_result->fetch_array()) {
+            $sql_write= "UPDATE `login` SET `user_number`= $Number WHERE `user_ID`=$user_ID";
+            $write_result = $link->query($sql_write);
+            if ($write_result) {
+                //跳转至注册成功提示绑定的页面：binding_succ.php
+                echo "<script language=\"javascript\">";
+                echo "document.location=\"binding_succ.php\"";
+                echo "</script>";
+            } else {
+                echo "绑定失败";
+            }
+        }
+        else {
+            echo "学号或密码错误";
+        }
+
+    }
+}
+
+?>

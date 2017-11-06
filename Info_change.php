@@ -47,6 +47,41 @@
             <p>&nbsp;</p>
         </div>
     </footer>
+    <!--底部-->
+
+    <div data-am-widget="navbar" class="am-navbar am-cf my-nav-footer " id="">
+        <ul class="am-navbar-nav am-cf am-avg-sm-4 my-footer-ul">
+            <li>
+                <a href="index.php" class="">
+                    <span class="am-icon-home"></span>
+                    <span class="am-navbar-label">首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="publish.php" class="">
+                    <span class=" am-icon-comments"></span>
+                    <span class="am-navbar-label">信息发布</span>
+                </a>
+            </li>
+            <li>
+                <a href="shoucang.php" class="">
+                    <span class="am-icon-user"></span>
+                    <span class="am-navbar-label">收藏夹</span>
+                </a>
+            </li>
+            <li>
+                <a href="user.php" class="">
+                    <span class="am-icon-user"></span>
+                    <span class="am-navbar-label">我的</span>
+                </a>
+            </li>
+        </ul>
+        <script>
+            function showFooterNav(){
+                $("#footNav").toggle();
+            }
+        </script>
+    </div>
 </div>
 </body>
 </html>

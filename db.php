@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname="User";
+$dbname="soft skill sharing";
 
 // 创建连接
 $link = new mysqli($servername, $username, $password);

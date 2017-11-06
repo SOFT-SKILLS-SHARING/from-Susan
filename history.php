@@ -1,5 +1,5 @@
 <?php
-include("connect_History.php");
+include("db.php");
 
 $user_ID="1";
 $table="ClassHistory";
@@ -44,15 +44,16 @@ while($row2=$result2->fetch_array( MYSQLI_ASSOC)){
 </head>
 
 <body>
+
 <div class="container">
     <header data-am-widget="header" class="am-header am-header-default my-header">
         <div class="am-header-left am-header-nav">
-            <a href="resume.html" class="">
+            <a href="user.php" class="">
                 <i class="am-header-icon am-icon-chevron-left"></i>
             </a>
         </div>
         <h1 class="am-header-title">
-            <a href="resume.html" class="">我的</a>
+            <a href="history.php" class="">我的历史</a>
         </h1>
         <!--      <div class="am-header-right am-header-nav">
                 <a href="#right-link" class="">
@@ -71,16 +72,16 @@ while($row2=$result2->fetch_array( MYSQLI_ASSOC)){
     <div class="am-cf uchome-nav">
         <ul class="am-avg-sm-3">
             <li><a href="user.php">个人信息</a></li>
-            <li><a href="login.php">注册/登录/绑定</a></li>
-            <li><a href="history.html">我的历史</a></li>
+            <li><a href="login.php">账号</a></li>
+            <li><a href="history.php">我的历史</a></li>
 
         </ul>
     </div>
-    <div class="my-nav-bar">
+    <!--<div class="my-nav-bar">
         <ol class="am-breadcrumb">
-            <li><a href="history.html">历史</a></li>
+            <li><a href="history.php">历史</a></li>
         </ol>
-    </div>
+    </div>-->
 
     <div class="cart-panel">
         <h3>授课记录</h3>
@@ -120,6 +121,7 @@ while($row2=$result2->fetch_array( MYSQLI_ASSOC)){
                     <th>教师</th>
                     <th>时间</th>
                     <th>状态</th>
+                    <th>评价入口</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -131,6 +133,7 @@ while($row2=$result2->fetch_array( MYSQLI_ASSOC)){
                         <td> <?php echo $row2['teacher_name'];?></td>
                         <td> <?php echo $row2['class_time'];?></td>
                         <td> <?php echo "0";?></td>
+                        <td> <a href="CommentTest.php?id=<?php echo $row2['class_ID'];?>">评价</a></td>
                     </tr>
                     <?php
                 }
@@ -149,28 +152,29 @@ while($row2=$result2->fetch_array( MYSQLI_ASSOC)){
         </div>
     </footer>
     <!--底部-->
+
     <div data-am-widget="navbar" class="am-navbar am-cf my-nav-footer " id="">
         <ul class="am-navbar-nav am-cf am-avg-sm-4 my-footer-ul">
             <li>
-                <a href="index.html" class="">
+                <a href="index.php" class="">
                     <span class="am-icon-home"></span>
                     <span class="am-navbar-label">首页</span>
                 </a>
             </li>
             <li>
-                <a href="publish.html" class="">
+                <a href="publish.php" class="">
                     <span class=" am-icon-comments"></span>
                     <span class="am-navbar-label">信息发布</span>
                 </a>
             </li>
             <li>
-                <a href="favorite.html" class="">
+                <a href="shoucang.php" class="">
                     <span class="am-icon-user"></span>
                     <span class="am-navbar-label">收藏夹</span>
                 </a>
             </li>
             <li>
-                <a href="resume.html" class="">
+                <a href="user.php" class="">
                     <span class="am-icon-user"></span>
                     <span class="am-navbar-label">我的</span>
                 </a>
